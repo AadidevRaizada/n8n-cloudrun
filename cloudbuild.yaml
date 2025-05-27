@@ -16,4 +16,5 @@ images:
   - 'gcr.io/$PROJECT_ID/github.com/aadidevraizada/n8n-cloudrun:$COMMIT_SHA'
 
 options:
-  logging: NONE # or NONE if you want no logs
+  logging: CLOUD_LOGGING_ONLY  # or NONE if you want no logs
+  logBucket: cloud-build-logs-bucket-aadidev
