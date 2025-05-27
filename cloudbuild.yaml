@@ -1,0 +1,19 @@
+# cloudbuild.yaml
+
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '-t',
+        'gcr.io/$PROJECT_ID/github.com/aadidevraizada/n8n-cloudrun:$COMMIT_SHA',
+        '-f',
+        '.devcontainer/Dockerfile',
+        '.'
+      ]
+
+images:
+  - 'gcr.io/$PROJECT_ID/github.com/aadidevraizada/n8n-cloudrun:$COMMIT_SHA'
+
+options:
+  logging: CLOUD_LOGGING_ONLY  # or NONE if you want no logs
